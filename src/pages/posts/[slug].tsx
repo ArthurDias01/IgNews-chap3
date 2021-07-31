@@ -22,12 +22,13 @@ export default function Post({ post }: PostProps) {
         <title>{post.title} | IgNews</title>
       </Head>
 
+      {/* atributo dangerouslySetInnerHTML permite inserir ou injetar qualquer coisa HTML dentro do componente, deve-se tomar cuidado para não permitir que seja injetado scripts maliciosos através dessa brecha aberta pela tag. No caso o prismic tem a tratativa para não permitir essa injeção de script por isso podemos usar quando na utilização do prismic como CMS. */}
+
       <main className={styles.container}>
         <article className={styles.post}>
           <h1>{post.title}</h1>
           <time>{post.updatedAt}</time>
           <div
-            //atributo dangerouslySetInnerHTML permite inserir ou injetar qualquer coisa HTML dentro do componente, deve-se tomar cuidado para não permitir que seja injetado scripts maliciosos através dessa brecha aberta pela tag. No caso o prismic tem a tratativa para não permitir essa injeção de script por isso podemos usar quando na utilização do prismic como CMS.
             className={styles.postContent}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
@@ -41,7 +42,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
   const session = await getSession({ req });
   const { slug } = params;
 
-  if (session === null || !session.activeSubscription) {
+  if (!session?.activeSubscription) {
     return {
       redirect: {
         destination: '/',
@@ -49,7 +50,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
       }
     }
   }
-  const prismic = await getPrismicClient(req);
+  const prismic = getPrismicClient(req);
   const response = await prismic.getByUID('post', String(slug), {})
   if (!response) {
     return {

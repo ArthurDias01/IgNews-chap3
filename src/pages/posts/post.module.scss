@@ -2,14 +2,16 @@
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 2rem;
+  font-weight: 100 !important;
 }
 
 .post {
   max-width: 720px;
   margin: 5rem auto 0;
+
   h1 {
     font-size: 3.5rem;
-    font-weight: 900;
+    font-weight: 400;
   }
 
   time {
@@ -20,19 +22,48 @@
   }
   .postContent {
     margin-top: 2rem;
-    line-height: 1.5rem;
+    line-height: 2rem;
     font-size: 1.125rem;
     color: var(--gray-100);
+    p {
+      font-weight: 400;
+    }
 
     p,
     ul {
       margin: 1.5rem 0;
+    }
+    a {
+      display: block;
+      text-decoration: none;
     }
     ul {
       padding-left: 1.5rem;
       li {
         margin: 0.5rem 0;
       }
+    }
+    &.previewContent {
+      background: linear-gradient(var(--gray-100), transparent);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+.continueReading {
+  padding: 2rem;
+  text-align: center;
+  background: var(--gray-850);
+  border-radius: 5rem;
+  font-weight: bold;
+  margin: 4rem 0 2rem;
+  a {
+    color: var(--yellow-500);
+    margin-left: 0.5rem;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }

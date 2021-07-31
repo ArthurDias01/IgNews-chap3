@@ -3,6 +3,8 @@ import Head from 'next/head';
 import styles from './home.module.scss';
 import { SubscribeButton } from '../components/SubscribeButton'
 import { stripe } from '../services/stripe';
+import Image from 'next/image'
+import AvatarImg from '../../public/images/avatar.svg';
 
 
 // formas de fazer chamadas à API
@@ -28,7 +30,7 @@ export default function Home({ product }) {
           <SubscribeButton priceId={product.priceId} />
         </section>
 
-        <img src='/images/avatar.svg' alt="Girl Coding" />
+        <Image src={AvatarImg} alt="Girl Coding" />
       </main>
 
     </>
