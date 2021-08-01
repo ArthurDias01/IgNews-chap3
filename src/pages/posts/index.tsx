@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next';
 import { getPrismicClient } from '../../services/prismic';
 import Prismic from '@prismicio/client';
 import { RichText } from 'prismic-dom';
+import { useSession } from 'next-auth/client';
 
 type Post = {
   slug: string,
@@ -19,6 +20,8 @@ interface PostsProps {
 
 
 export default function Posts({ posts }: PostsProps) {
+  const [session] = useSession();
+
   return (
     <>
       <Head>
@@ -27,15 +30,26 @@ export default function Posts({ posts }: PostsProps) {
 
       <main className={styles.container}>
         <div className={styles.posts}>
-          {posts.map(post => (
-            <Link key={post.slug} href={`/posts/${post.slug}`}>
-              <a>
-                <time>{post.updatedAt}</time>
-                <strong>{post.title}</strong>
-                <p>{post.excerpt}</p>
-              </a>
-            </Link>
-          ))}
+          {!session ? (
+            posts.map(post => (
+              <Link key={post.slug} href={`/posts/preview/${post.slug}`}>
+                <a>
+                  <time>{post.updatedAt}</time>
+                  <strong>{post.title}</strong>
+                  <p>{post.excerpt}</p>
+                </a>
+              </Link>
+            ))
+          ) : (
+            posts.map(post => (
+              <Link key={post.slug} href={`/posts/${post.slug}`}>
+                <a>
+                  <time>{post.updatedAt}</time>
+                  <strong>{post.title}</strong>
+                  <p>{post.excerpt}</p>
+                </a>
+              </Link>
+            )))}
         </div>
       </main>
     </>
@@ -45,9 +59,9 @@ export default function Posts({ posts }: PostsProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient()
   const response = await prismic.query([
-    Prismic.predicates.at('document.type', 'post')
+    Prismic.predicates.at('document.type', 'publication')
   ], {
-    fetch: ['post.title', 'post.content'],
+    fetch: ['publication.title', 'publication.content'],
     pageSize: 25,
   })
 

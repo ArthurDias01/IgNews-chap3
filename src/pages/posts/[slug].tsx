@@ -51,7 +51,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
     }
   }
   const prismic = getPrismicClient(req);
-  const response = await prismic.getByUID('post', String(slug), {})
+  const response = await prismic.getByUID('publication', String(slug), {})
+
+
+  console.log(JSON.stringify(response, null, 2));
+
   if (!response) {
     return {
       redirect: {
@@ -60,6 +64,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
       }
     }
   }
+
   const post = {
     slug,
     title: RichText.asText(response.data.title),
