@@ -5,7 +5,11 @@ import { GetStaticProps } from 'next';
 import { getPrismicClient } from '../../services/prismic';
 import Prismic from '@prismicio/client';
 import { RichText } from 'prismic-dom';
+import BsFillPersonFill from 'react-icons'
 import { useSession } from 'next-auth/client';
+
+
+
 
 type Post = {
   slug: string,
@@ -21,7 +25,6 @@ interface PostsProps {
 
 export default function Posts({ posts }: PostsProps) {
   const [session] = useSession();
-
   return (
     <>
       <Head>
