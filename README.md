@@ -39,7 +39,7 @@
 </a>
 
 ## :fire: Execução da aplicação em produção
-- Link da aplicação: https://ignews-felipenkniess.vercel.app/
+- Link da aplicação: https://ignews-deploy-roan.vercel.app/
 - :credit_card: para realizar a assinatura sem precisar usar seu cartão de crédito, pode utilizar esse número fake: ``` 4242 4242 4242 4242 ```
 
 ## :octocat: Execução da aplicação em desenvolvimento
