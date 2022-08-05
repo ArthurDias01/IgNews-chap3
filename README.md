@@ -14,17 +14,25 @@
   </a>  
 </p>
 
-## 🎯 Sobre
-
-<p>O ignews é um portal de notícias no qual os usuários pagam para ter acesso. o usuário só tem acesso das postagens caso ele tenha uma inscrição ativa no Stripe. 
-  caso o usuário não seja inscrito, poderá ler apenas um resumo das postagens.
+## 🎯 Sobre | About
+[PT-BR]
+<p>O ignews é um portal de notícias no qual os usuários pagam para ter acesso. O usuário só pode ver as postagens completas caso ele tenha uma inscrição ativa no Stripe. caso o usuário não seja inscrito, poderá ler apenas um resumo das postagens.
 </p>
 <p>
   Os meios de pagamento da aplicação são integrados com a API do Stripe, juntamente do FaunaDB para armazenar as informações dos usuários. as postagens são administradas através do CMS Prismic.io 
  </p>
  <p>A aplicação é construída com modelo <strong>Serveless</strong>, sem necessidade de criar uma API externa para manipular os dados 🚀</p>
+ 
+ [EN]
+ 
+ <p>IGnews is a news portal where users pay to have access. The user can only see full posts if they have an active Stripe subscription. if the user is not subscribed, he will only be able to read a summary of the posts.
+</p>
+<p>
+  The application's payment methods are integrated with the Stripe API, together with FaunaDB to store user information. posts are managed through CMS Prismic.io
+ </p>
+ <p>The application is built with a <strong>Serveless</strong> model, without the need to create an external API to manipulate the data 🚀</p>
 
-## 🚀 Tecnologias utilizadas
+## 🚀 Techs
 - [NextJS](https://nextjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Sass](https://sass-lang.com/)
@@ -33,16 +41,18 @@
 - [Prismic.io](https://prismic.io/)
 
 
-## :eyes: Demonstração da aplicação
-<a target="_blank" href="https://ignews-deploy-roan.vercel.app/">
-  <img src="./public/images/ignews-preview.gif" alt="License MIT">
-</a>
 
-## :fire: Execução da aplicação em produção
+## :fire: Execução da aplicação em produção | Execute in Production App
+
+[PT-BR]
 - Link da aplicação: https://ignews-deploy-roan.vercel.app/
 - :credit_card: para realizar a assinatura sem precisar usar seu cartão de crédito, pode utilizar esse número fake: ``` 4242 4242 4242 4242 ```
 
-## :octocat: Execução da aplicação em desenvolvimento
+[EN]
+- Application link: https://ignews-deploy-roan.vercel.app/
+- :credit_card: to subscribe without having to use your credit card, you can use this fake number: ``` 4242 4242 4242 4242 ```
+
+## :octocat: Execução da aplicação em desenvolvimento | In development Execution
 - Requisítos: Instalar [Git](https://git-scm.com/), [Node](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/)
 - Baixar o repositório na máquina e entrar no projeto:
 ```bash
